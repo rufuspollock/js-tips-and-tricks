@@ -34,7 +34,8 @@ Deserialize to and from JSON (warning: not at all performant!)::
 
 ## Check if a variable is undefined
 
-    if (typeof variable === undefined) {
+    // The typeof operator always returns a string!
+    if (typeof(variable) === "undefined") {
       // do something
     }
 
