@@ -176,3 +176,68 @@ Usage::
     var x = new X(123);
     var y = new Y(234, 567);
 
+## Test whether an object is of a certain type
+
+Test whether it is an Array:
+
+    obj instanceof Array
+
+Another method if constructor is present
+
+    if (output.constructor == Array) {
+    }
+    else if(output.constructor == Object) {
+    }
+
+Test whether it is a string of other simple type:
+
+    typeof obj === 'string'
+    typeof obj === 'number'
+    typeof obj === 'boolean'
+
+
+## String functions
+
+### Strip / Trim
+
+Available in most modern browsers at the .trim() function but not available in IE7!
+
+    mystring = mystring.replace(/^\s+|\s+$/g, '');                     
+
+### Contains
+
+Test whether one string contains another. Solution is to use `indexOf`. For example, to test whether myString contains 'levin':
+
+    myString.indexOf('levin') != -1
+
+
+## Pretty-print JSON
+
+    JSON.stringify({a: "lorem", b: "ipsum"}, null, 4);
+    JSON.stringify({a: "lorem", b: "ipsum"}, null, '\t');
+
+
+## Parse a Query String
+
+Parse a URL query string (?xyz=abc...) into a dictionary.
+
+    parseQueryString = function(q) {
+      if (!q) {
+        return {};
+      }
+      var urlParams = {},
+        e, d = function (s) {
+          return unescape(s.replace(/\+/g, " "));
+        },
+        r = /([^&=]+)=?([^&]*)/g;
+
+      if (q && q.length && q[0] === '?') {
+        q = q.slice(1);
+      }
+      while (e = r.exec(q)) {
+        // TODO: have values be array as query string allow repetition of keys
+        urlParams[d(e[1])] = d(e[2]);
+      }
+      return urlParams;
+    };
+
