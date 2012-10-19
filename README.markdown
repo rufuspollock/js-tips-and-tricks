@@ -242,3 +242,38 @@ Parse a URL query string (?xyz=abc...) into a dictionary.
       return urlParams;
     };
 
+## Format Numbers Nicely
+
+    var formatAmount = function (num) {
+      var billion = 1000000000;
+      var million = 1000000;
+      var thousand = 1000;
+      var numabs = Math.abs(num);
+      if (numabs > billion) {
+        return num / billion + 'bn';
+      }
+      if (numabs > (million / 2)) {
+        return num / million + 'm';
+      }
+      if (numabs > thousand) {
+        return num / thousand + 'k';
+      } else {
+        return num;
+      }
+    };
+
+    var formatAmountWithCommas = function (num, decimalPlaces) {
+      if (decimalPlaces === undefined) {
+        decimalPlaces = 0;
+      }
+      num = num.toFixed(decimalPlaces);
+      x = num.split('.');
+      x1 = x[0];
+      x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+      while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+      return x1 + x2;
+    };
+
