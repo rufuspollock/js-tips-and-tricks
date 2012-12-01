@@ -1,6 +1,11 @@
-Javascript tips and tricks I've found useful. Contributions welcome (just
-visit the source, make sure you are logged in and hit edit - or fork and
-patch).
+---
+layout: default
+title: Home
+---
+
+Javascript tips and tricks I've found useful. Contributions welcome -- just
+visit the source, make sure you are logged in and hit edit, or, [fork and
+pull](https://help.github.com/articles/using-pull-requests).
 
 # Here beginneth the tips
 
@@ -39,7 +44,7 @@ Deserialize to and from JSON (warning: not at all performant!)::
       // do something
     }
 
-## Simile Inheritance in Javascript
+## Simple Inheritance in Javascript
 
 ### John Resig's original
 
@@ -228,13 +233,11 @@ Parse a URL query string (?xyz=abc...) into a dictionary.
       }
       var urlParams = {},
         e, d = function (s) {
-          return unescape(s.replace(/\+/g, " "));
+          return decodeURIComponent(s.replace(/\+/g, " "));
         },
         r = /([^&=]+)=?([^&]*)/g;
 
-      if (q && q.length && q[0] === '?') {
-        q = q.slice(1);
-      }
+      if (q && q.length && q[0] === '?') q = q.slice(1);
       while (e = r.exec(q)) {
         // TODO: have values be array as query string allow repetition of keys
         urlParams[d(e[1])] = d(e[2]);
