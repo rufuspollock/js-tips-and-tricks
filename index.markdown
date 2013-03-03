@@ -285,3 +285,25 @@ Parse a URL query string (?xyz=abc...) into a dictionary.
       return x1 + x2;
     };
 
+## Javscript Module Pattern
+
+Readings:
+
+* [JavaScript Module Pattern: In-Depth by Ben Cherry](http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth)
+
+### Modules that work in NodeJS and the Browser
+
+Have your normal (browser) JS code then do:
+
+    // export to NodeJS or RequireJS if they are present ...
+    var safeExport = function (publicMethods) {
+      // NodeJS
+      if (typeof module !== 'undefined' && module !== null) module.exports = publicMethods;
+      // RequireJS
+      if (typeof define === "function") define([], publicMethods);
+    };
+
+    // now setup the export
+    module = {publicFunc1: publicFunc1, publicFunc2: publicFun2};
+    safeExport(module)
+
