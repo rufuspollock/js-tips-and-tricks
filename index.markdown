@@ -7,6 +7,11 @@ Javascript tips and tricks I've found useful. Contributions welcome -- just
 visit the source, make sure you are logged in and hit edit, or, [fork and
 pull](https://help.github.com/articles/using-pull-requests).
 
+**Table of Contents**
+
+* Something random here that will be deleted
+{:toc}
+
 # Here beginneth the tips
 
 ## Deep Copy
