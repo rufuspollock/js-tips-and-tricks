@@ -12,7 +12,7 @@ pull](https://help.github.com/articles/using-pull-requests).
 * Something random here that will be deleted
 {:toc}
 
-# Here beginneth the tips
+# Object Operations
 
 ## Deep Copy
 
@@ -207,20 +207,27 @@ Test whether it is a string of other simple type:
     typeof obj === 'boolean'
 
 
-## String functions
+# String functions
 
-### Strip / Trim
+## Strip / Trim
 
 Available in most modern browsers at the .trim() function but not available in IE7!
 
     mystring = mystring.replace(/^\s+|\s+$/g, '');                     
 
-### Contains
+## Contains
 
 Test whether one string contains another. Solution is to use `indexOf`. For example, to test whether myString contains 'levin':
 
     myString.indexOf('levin') != -1
 
+## Ends With
+
+Does a string end with the given suffix:
+
+    mystring.indexOf(suffix, mystring.length - suffix.length) !== -1;
+
+# Miscellaneous
 
 ## Pretty-print JSON
 
@@ -285,7 +292,7 @@ Parse a URL query string (?xyz=abc...) into a dictionary.
       return x1 + x2;
     };
 
-## Javscript Module Pattern
+# Javscript Module Pattern
 
 Readings:
 
