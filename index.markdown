@@ -292,6 +292,26 @@ Parse a URL query string (?xyz=abc...) into a dictionary.
       return x1 + x2;
     };
 
+## Short Unique ID
+
+    function generateUIDNotMoreThan1million() {
+      return ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4)
+    }
+
+## Sluggify - make a text string usable in a URL
+
+See https://gist.github.com/rgrp/6853701 for more examples
+
+    // lowercase, replace ' ' by '-' and remove everything that is not alphanumeric, underscore or dash
+    var slug = title
+      .toLowerCase()
+      .replace(/ /g, '-')
+      .replace(/--+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      ;
+
+----
+
 # Javscript Module Pattern
 
 Readings:
